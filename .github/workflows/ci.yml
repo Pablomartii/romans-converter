@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build-and-deploy:
+  build-and-lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +23,3 @@ jobs:
       - name: Lint JavaScript files
         run: |
           eslint script.js test.js || true
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
