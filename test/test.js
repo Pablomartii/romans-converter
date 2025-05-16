@@ -1,32 +1,30 @@
-import { expect } from 'chai';
 import { integerToRoman, romanToInteger } from '../converter.js';
+import assert from 'assert';
 
-describe('Roman Converter Tests', () => {
-  describe('integerToRoman()', () => {
-    it('should convert 10 to "X"', () => {
-      expect(integerToRoman(10)).to.equal('X');
-    });
-
-    it('should convert 3999 to "MMMCMXCIX"', () => {
-      expect(integerToRoman(3999)).to.equal('MMMCMXCIX');
-    });
-
-    it('should throw an error for non-integer input (e.g. 10.5)', () => {
-      expect(() => integerToRoman(10.5)).to.throw();
-    });
+describe('integerToRoman', () => {
+  it('should convert 1 to I', () => {
+    assert.strictEqual(integerToRoman(1), 'I');
   });
 
-  describe('romanToInteger()', () => {
-    it('should convert "X" to 10', () => {
-      expect(romanToInteger('X')).to.equal(10);
-    });
+  it('should convert 1994 to MCMXCIV', () => {
+    assert.strictEqual(integerToRoman(1994), 'MCMXCIV');
+  });
 
-    it('should convert "MMMCMXCIX" to 3999', () => {
-      expect(romanToInteger('MMMCMXCIX')).to.equal(3999);
-    });
+  it('should throw an error for 0', () => {
+    assert.throws(() => integerToRoman(0), /The number must be an integer between 1 and 3999/);
+  });
+});
 
-    it('should throw an error for invalid roman numeral (e.g. "IIII")', () => {
-      expect(() => romanToInteger('IIII')).to.throw();
-    });
+describe('romanToInteger', () => {
+  it('should convert I to 1', () => {
+    assert.strictEqual(romanToInteger('I'), 1);
+  });
+
+  it('should convert MCMXCIV to 1994', () => {
+    assert.strictEqual(romanToInteger('MCMXCIV'), 1994);
+  });
+
+  it('should throw an error for non-canonical input like IIV', () => {
+    assert.throws(() => romanToInteger('IIV'), /not in canonical form/);
   });
 });
