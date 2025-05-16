@@ -1,8 +1,5 @@
 import { integerToRoman, romanToInteger } from './converter.js';
 
-/**
- * Handles the conversion process when the user clicks the convert button.
- */
 function handleConversion() {
   const mode = document.getElementById('conversionMode').value;
   const input = document.getElementById('inputValue').value.trim();
