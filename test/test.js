@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { integerToRoman, romanToInteger } from '../script.js';
+import { integerToRoman, romanToInteger } from '../converter.js';
 
 describe('Roman Converter Tests', () => {
   describe('integerToRoman()', () => {
