@@ -1,4 +1,4 @@
-// Commit de prueba para verificar el nuevo workflow
+// Prueba de CI
 
 /**
  * Converts an integer (between 1 and 3999) to its Roman numeral equivalent.
